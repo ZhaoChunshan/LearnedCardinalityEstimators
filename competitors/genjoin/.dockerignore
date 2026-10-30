@@ -1,0 +1,20 @@
+# git stuff
+.git
+.gitignore
+
+# docker stuff
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# IDE stuff
+.idea
+
+.env
+README.md
+
+# db stuff
+*.db
+# cron tab
+cron/
+scripts/

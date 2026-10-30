@@ -1,0 +1,151 @@
+{
+    "mscn": {
+        "sample_bitmap": true,
+        "sample_number": 1000,
+        "hidden_size": 128,
+        "optimizer": "adam",
+        "lr": 0.001,
+        "batch_size": 128,
+        "epochs": 60,
+        "early_stop_patience": null,
+        "load_best_model": true
+    },
+
+    "robustmscn": {
+        "sample_number": 1000,
+        "foreign_table_ratio": 0.01,
+        "query_masking_ratio": 0.2,
+        "hidden_size": 128,
+        "optimizer": "adam",
+        "lr": 0.001,
+        "batch_size": 128,
+        "epochs": 60,
+        "early_stop_patience": null,
+        "load_best_model": true
+    },
+
+    "jgmp": {
+        "use_pg_estimates": true,
+        "select_feature_samples": true,
+
+        "sample_bitmap": true,
+        "sample_number": 100000,
+        "instance_number": 1000,
+        "max_fs_choices": 1000, 
+        "bitmap_size": 16,
+        
+        "sample_layer_size": 32,
+        "node_size": 64,
+        "node_number": 0,
+        "edge_size": 8,
+        "edge_number": 1,
+        "size_per_tower": 8,
+        "towers": 4,
+        "conv_number": 3,
+        "skip_connections": true,
+        "node_aggregate_head_size": 128,
+        "node_aggregate_heads": 8,
+        "final_size": 256,
+        "final_number": 1,
+
+        "optimizer": "adam",
+        "lr": 0.0005,
+        "batch_size": 128,
+        "epochs": 60,
+
+        "early_stop_patience": null,
+        "load_best_model": true,
+        "debug": false
+    },
+
+    "alece": {
+        "build_histogram": true,
+
+        "n_bins": 40,
+        "num_attn_heads": 8,
+        "attn_head_dim": 512,
+        "feed_forward_dim": 2048,
+        "num_self_attn_layers": 6,
+        "num_cross_attn_layers": 6,
+        "mlp_num_layers": 6,
+        "mlp_hidden_dim": 512,
+        "dropout": 0.0,
+        "scaling_ratio": 20,
+
+        "optimizer": "adam",
+        "lr": 1e-4,
+        "weight_decay": 0,
+        "batch_size": 128,
+        "epochs": 60,
+
+        "early_stop_patience": null,
+        "load_best_model": true,
+        
+        "infer_batch_size": 4096
+    },
+
+    "price": {
+        "build_price_statistics": true,
+
+        "batch_size": 1500,
+        "lr": 1e-5,
+        "accumulation_steps": 10,
+        "epochs": 100,
+        "max_n_join_col": 9, 
+        "max_n_fanout": 12, 
+        "max_n_table": 7, 
+        "max_n_filter_col": 10,
+
+        "early_stop_patience": null,
+        "load_best_model": true
+    },
+
+    "deepdb": {
+        "ensemble_strategy": "relationship",
+        "ensemble_budget_factor": 4,
+        "ensemble_max_no_joins": 2,
+        "ratio_min_instance_slice": 0.01
+    },
+
+    "neurocard": {
+        "use_transformer": false,
+        "epochs": 7,
+        "eval_psamples": 8000,
+        "update_max_steps": 50,
+        "update_learning_rate": 0.0002
+    },
+
+    "factorjoin": {
+        "n_dim_dist": 2,
+        "n_bins": 200
+    },
+
+    "bayescard": {
+        "learning_algo": "chow-liu",
+        "max_parents": 1,
+        "sample_size": 200000,
+        "infer_algo": "exact-jit-torch"
+    },
+
+    "asm": {
+        "sample_size": 2048
+    },
+
+    "asm_hybrid": {
+        "fail_rate_threshold": 0.99
+    },
+
+    "mscn_hybrid": {
+        "sample_bitmap": true,
+        "sample_number": 1000,
+        "hidden_size": 128,
+        "ensemble_size": 10,
+        "var_threshold": 0.005,
+        "optimizer": "adam",
+        "lr": 0.001,
+        "batch_size": 128,
+        "epochs": 60,
+        "early_stop_patience": null,
+        "load_best_model": true
+    }
+}

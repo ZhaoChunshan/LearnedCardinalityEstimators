@@ -1,0 +1,162 @@
+import os
+import sys
+
+from typing import List, Dict, Tuple, Set
+
+sys.path.append(os.path.join(os.path.dirname(__file__), "../cpp/build"))
+from enumerate_plan import (
+    PlanNode,
+    ScanNode,
+    JoinNode,
+    ScanMethod,
+    JoinMethod,
+    enumerate_plan,
+)
+
+# pg_hint_plan keyword for each physical operator.
+SCAN_HINT_NAME: Dict[ScanMethod, str] = {
+    ScanMethod.SeqScan: "SeqScan",
+    ScanMethod.IndexScan: "IndexScan",
+    ScanMethod.IndexOnlyScan: "IndexOnlyScan",
+    ScanMethod.BitmapScan: "BitmapScan",
+}
+JOIN_HINT_NAME: Dict[JoinMethod, str] = {
+    JoinMethod.NestedLoopJoin: "NestLoop",
+    JoinMethod.HashJoin: "HashJoin",
+    JoinMethod.MergeJoin: "MergeJoin",
+}
+
+# PostgreSQL EXPLAIN (FORMAT JSON) "Node Type" -> pg_hint_plan keyword.
+PG_SCAN_TYPE: Dict[str, str] = {
+    "Seq Scan": "SeqScan",
+    "Index Scan": "IndexScan",
+    "Index Only Scan": "IndexOnlyScan",
+    "Bitmap Heap Scan": "BitmapScan",
+}
+PG_JOIN_TYPE: Dict[str, str] = {
+    "Hash Join": "HashJoin",
+    "Nested Loop": "NestLoop",
+    "Merge Join": "MergeJoin",
+}
+
+
+class Hint:
+    def __init__(self, leading_hint: str, access_method: Set[str]):
+        self.leading_hint = leading_hint
+        self.access_method = access_method
+    
+    def __eq__(self, other):
+        if not isinstance(other, Hint):
+            return False
+        return (self.leading_hint == other.leading_hint and
+                self.access_method == other.access_method)
+
+    def __repr__(self):
+        return f"Hint(leading_hint={self.leading_hint!r}, access_method={self.access_method!r})"
+
+    def __str__(self):
+        methods = ", ".join(sorted(self.access_method))
+        return f"leading_hint: {self.leading_hint}\naccess_method: [{methods}]"
+
+
+    @staticmethod
+    def from_custom_plan(plan: PlanNode, relation_names: List[str]) -> 'Hint':
+        access_method: Set[str] = set()
+
+        def walk(node: PlanNode) -> Tuple[List[str], str]:
+            """Return relation names in the subtree and the leading-hint fragment."""
+            if node.is_join():
+                left_tables, left_leading = walk(node.left)
+                right_tables, right_leading = walk(node.right)
+                tables = left_tables + right_tables
+                access_method.add(
+                    f"{JOIN_HINT_NAME[node.join_method]}({' '.join(tables)})"
+                )
+                return tables, f"({left_leading} {right_leading})"
+            access_method.add(
+                f"{SCAN_HINT_NAME[node.scan_method]}({relation_names[node.relation]})"
+            )
+            return [relation_names[node.relation]], relation_names[node.relation]
+
+        _, leading_hint = walk(plan)
+        return Hint(leading_hint, access_method)
+    
+    @staticmethod
+    def from_pg_physical_plan_json(json_plan) -> 'Hint':
+        # Unwrap to the root plan node: tolerate the full EXPLAIN envelope
+        # ([{"Plan": {...}}]), a bare {"Plan": {...}}, or the node itself.
+        node = json_plan
+        if isinstance(node, list) and node:
+            node = node[0]
+        if isinstance(node, dict) and "Plan" in node:
+            node = node["Plan"]
+
+        access_method: Set[str] = set()
+
+        def relation_name(plan_node: dict) -> str:
+            return plan_node.get("Alias") or plan_node.get("Relation Name")
+
+        def walk(plan_node: dict) -> Tuple[List[str], str]:
+            """Return relation names under node and its leading-hint fragment."""
+            node_type = plan_node.get("Node Type")
+
+            # Leaf: a relation scan.
+            if node_type in PG_SCAN_TYPE:
+                rel = relation_name(plan_node)
+                access_method.add(f"{PG_SCAN_TYPE[node_type]}({rel})")
+                return [rel], rel
+
+            # Binary join: recurse into each child, then combine.
+            if node_type in PG_JOIN_TYPE:
+                tables: List[str] = []
+                leadings: List[str] = []
+                for child in plan_node.get("Plans", []):
+                    child_tables, child_leading = walk(child)
+                    if not child_tables and not child_leading:
+                        continue
+                    tables += child_tables
+                    leadings.append(child_leading)
+                access_method.add(
+                    f"{PG_JOIN_TYPE[node_type]}({' '.join(tables)})"
+                )
+                return tables, "(" + " ".join(leadings) + ")"
+
+            # Passthrough node (Hash, Sort, Materialize, Aggregate, Limit, ...):
+            # neither a relation nor a join, so delegate to its single subtree.
+            children = plan_node.get("Plans", [])
+            if children:
+                return walk(children[0])
+            return [], ""
+
+        _, leading_hint = walk(node)
+        return Hint(leading_hint, access_method)
+
+
+    def to_pg_hint(self) -> str:
+        # Emit a pg_hint_plan block comment, one hint per line for readability
+        # (matches the layout pilotscope.Common.Util.get_pg_hints produces):
+        #     /*+
+        #     SeqScan(t0)
+        #     IndexScan(t1)
+        #     HashJoin(t0 t1 t2)
+        #     Leading((t0 (t1 t2)))
+        #     */
+        scan_keywords = set(SCAN_HINT_NAME.values())
+        join_keywords = set(JOIN_HINT_NAME.values())
+
+        scan_hints: List[str] = []
+        join_hints: List[str] = []
+        for hint in self.access_method:
+            keyword = hint.split("(", 1)[0]
+            if keyword in join_keywords:
+                join_hints.append(hint)
+            else:
+                scan_hints.append(hint)
+
+        lines = ["/*+"]
+        lines.extend(sorted(scan_hints))
+        lines.extend(sorted(join_hints))
+        if self.leading_hint:
+            lines.append(f"Leading({self.leading_hint})")
+        lines.append("*/")
+        return "\n".join(lines) + "\n"

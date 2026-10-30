@@ -1,0 +1,1601 @@
+{
+  "name": "job_large_ours",
+  "relations": {
+    "AKA_NAME": {
+      "ID": "int",
+      "PERSON_ID": "int",
+      "NAME": "str",
+      "IMDB_INDEX": "str",
+      "NAME_PCODE_CF": "str",
+      "NAME_PCODE_NF": "str",
+      "SURNAME_PCODE": "str",
+      "MD5SUM": "str"
+    },
+    "AKA_TITLE": {
+      "ID": "int",
+      "MOVIE_ID": "int",
+      "TITLE": "str",
+      "IMDB_INDEX": "str",
+      "KIND_ID": "int",
+      "PRODUCTION_YEAR": "int",
+      "PHONETIC_CODE": "str",
+      "EPISODE_OF_ID": "int",
+      "SEASON_NR": "int",
+      "EPISODE_NR": "int",
+      "NOTE": "str",
+      "MD5SUM": "str"
+    },
+    "CAST_INFO": {
+      "ID": "int",
+      "PERSON_ID": "int",
+      "MOVIE_ID": "int",
+      "PERSON_ROLE_ID": "int",
+      "NOTE": "str",
+      "NR_ORDER": "int",
+      "ROLE_ID": "int"
+    },
+    "CHAR_NAME": {
+      "ID": "int",
+      "NAME": "str",
+      "IMDB_INDEX": "str",
+      "IMDB_ID": "int",
+      "NAME_PCODE_NF": "str",
+      "SURNAME_PCODE": "str",
+      "MD5SUM": "str"
+    },
+    "COMP_CAST_TYPE": {
+      "ID": "int",
+      "KIND": "str"
+    },
+    "COMPANY_NAME": {
+      "ID": "int",
+      "NAME": "str",
+      "COUNTRY_CODE": "str",
+      "IMDB_ID": "int",
+      "NAME_PCODE_NF": "str",
+      "NAME_PCODE_SF": "str",
+      "MD5SUM": "str"
+    },
+    "COMPANY_TYPE": {
+      "ID": "int",
+      "KIND": "str"
+    },
+    "COMPLETE_CAST": {
+      "ID": "int",
+      "MOVIE_ID": "int",
+      "SUBJECT_ID": "int",
+      "STATUS_ID": "int"
+    },
+    "INFO_TYPE": {
+      "ID": "int",
+      "INFO": "str"
+    },
+    "KEYWORD": {
+      "ID": "int",
+      "KEYWORD": "str",
+      "PHONETIC_CODE": "str"
+    },
+    "KIND_TYPE": {
+      "ID": "int",
+      "KIND": "str"
+    },
+    "LINK_TYPE": {
+      "ID": "int",
+      "LINK": "str"
+    },
+    "MOVIE_COMPANIES": {
+      "ID": "int",
+      "MOVIE_ID": "int",
+      "COMPANY_ID": "int",
+      "COMPANY_TYPE_ID": "int",
+      "NOTE": "str"
+    },
+    "MOVIE_INFO_IDX": {
+      "ID": "int",
+      "MOVIE_ID": "int",
+      "INFO_TYPE_ID": "int",
+      "INFO": "str",
+      "NOTE": "str"
+    },
+    "MOVIE_KEYWORD": {
+      "ID": "int",
+      "MOVIE_ID": "int",
+      "KEYWORD_ID": "int"
+    },
+    "MOVIE_LINK": {
+      "ID": "int",
+      "MOVIE_ID": "int",
+      "LINKED_MOVIE_ID": "int",
+      "LINK_TYPE_ID": "int"
+    },
+    "NAME": {
+      "ID": "int",
+      "NAME": "str",
+      "IMDB_INDEX": "str",
+      "IMDB_ID": "int",
+      "GENDER": "str",
+      "NAME_PCODE_CF": "str",
+      "NAME_PCODE_NF": "str",
+      "SURNAME_PCODE": "str",
+      "MD5SUM": "str"
+    },
+    "ROLE_TYPE": {
+      "ID": "int",
+      "ROLE": "str"
+    },
+    "TITLE": {
+      "ID": "int",
+      "TITLE": "str",
+      "IMDB_INDEX": "str",
+      "KIND_ID": "int",
+      "PRODUCTION_YEAR": "int",
+      "IMDB_ID": "int",
+      "PHONETIC_CODE": "str",
+      "EPISODE_OF_ID": "int",
+      "SEASON_NR": "int",
+      "EPISODE_NR": "int",
+      "SERIES_YEARS": "str",
+      "MD5SUM": "str"
+    },
+    "MOVIE_INFO": {
+      "ID": "int",
+      "MOVIE_ID": "int",
+      "INFO_TYPE_ID": "int",
+      "INFO": "str",
+      "NOTE": "str"
+    },
+    "PERSON_INFO": {
+      "ID": "int",
+      "PERSON_ID": "int",
+      "INFO_TYPE_ID": "int",
+      "INFO": "str",
+      "NOTE": "str"
+    }
+  },
+  "join_variables": {
+    "MOVIE_COMPANIES": [
+      "COMPANY_ID",
+      "COMPANY_TYPE_ID",
+      "MOVIE_ID"
+    ],
+    "MOVIE_INFO_IDX": [
+      "INFO_TYPE_ID",
+      "MOVIE_ID"
+    ],
+    "MOVIE_INFO": [
+      "INFO_TYPE_ID",
+      "MOVIE_ID"
+    ],
+    "PERSON_INFO": [
+      "INFO_TYPE_ID",
+      "PERSON_ID"
+    ],
+    "MOVIE_KEYWORD": [
+      "KEYWORD_ID",
+      "MOVIE_ID"
+    ],
+    "AKA_TITLE": [
+      "KIND_ID",
+      "MOVIE_ID"
+    ],
+    "TITLE": [
+      "ID",
+      "KIND_ID"
+    ],
+    "MOVIE_LINK": [
+      "LINK_TYPE_ID",
+      "LINKED_MOVIE_ID",
+      "MOVIE_ID"
+    ],
+    "CAST_INFO": [
+      "MOVIE_ID",
+      "PERSON_ID",
+      "PERSON_ROLE_ID",
+      "ROLE_ID"
+    ],
+    "COMPLETE_CAST": [
+      "MOVIE_ID",
+      "STATUS_ID",
+      "SUBJECT_ID"
+    ],
+    "AKA_NAME": [
+      "PERSON_ID"
+    ],
+    "CHAR_NAME": [
+      "ID"
+    ],
+    "COMP_CAST_TYPE": [
+      "ID"
+    ],
+    "COMPANY_NAME": [
+      "ID"
+    ],
+    "COMPANY_TYPE": [
+      "ID"
+    ],
+    "INFO_TYPE": [
+      "ID"
+    ],
+    "KEYWORD": [
+      "ID"
+    ],
+    "KIND_TYPE": [
+      "ID"
+    ],
+    "LINK_TYPE": [
+      "ID"
+    ],
+    "NAME": [
+      "ID"
+    ],
+    "ROLE_TYPE": [
+      "ID"
+    ]
+  },
+  "groupby_variables": {
+    "AKA_NAME": [
+      [
+        "*"
+      ]
+    ],
+    "AKA_TITLE": [
+      [
+        "*"
+      ]
+    ],
+    "CAST_INFO": [
+      [
+        "*"
+      ]
+    ],
+    "CHAR_NAME": [
+      [
+        "*"
+      ]
+    ],
+    "COMP_CAST_TYPE": [
+      [
+        "*"
+      ]
+    ],
+    "COMPANY_NAME": [
+      [
+        "*"
+      ]
+    ],
+    "COMPANY_TYPE": [
+      [
+        "*"
+      ]
+    ],
+    "COMPLETE_CAST": [
+      [
+        "*"
+      ]
+    ],
+    "INFO_TYPE": [
+      [
+        "*"
+      ]
+    ],
+    "KEYWORD": [
+      [
+        "*"
+      ]
+    ],
+    "KIND_TYPE": [
+      [
+        "*"
+      ]
+    ],
+    "LINK_TYPE": [
+      [
+        "*"
+      ]
+    ],
+    "MOVIE_COMPANIES": [
+      [
+        "*"
+      ]
+    ],
+    "MOVIE_INFO_IDX": [
+      [
+        "*"
+      ]
+    ],
+    "MOVIE_KEYWORD": [
+      [
+        "*"
+      ]
+    ],
+    "MOVIE_LINK": [
+      [
+        "*"
+      ]
+    ],
+    "NAME": [
+      [
+        "*"
+      ]
+    ],
+    "ROLE_TYPE": [
+      [
+        "*"
+      ]
+    ],
+    "TITLE": [
+      [
+        "*"
+      ]
+    ],
+    "MOVIE_INFO": [
+      [
+        "*"
+      ]
+    ],
+    "PERSON_INFO": [
+      [
+        "*"
+      ]
+    ]
+  },
+  "equality_predicate_variables": {
+    "AKA_NAME": [
+      "NAME_PCODE_CF",
+      "PERSON_ID"
+    ],
+    "AKA_TITLE": [
+      "KIND_ID",
+      "MD5SUM",
+      "MOVIE_ID",
+      "NOTE",
+      "PHONETIC_CODE",
+      "PRODUCTION_YEAR",
+      "TITLE"
+    ],
+    "CAST_INFO": [
+      "ID",
+      "MOVIE_ID",
+      "NOTE",
+      "NR_ORDER",
+      "PERSON_ID",
+      "PERSON_ROLE_ID",
+      "ROLE_ID"
+    ],
+    "CHAR_NAME": [
+      "ID",
+      "NAME_PCODE_NF"
+    ],
+    "COMPANY_NAME": [
+      "COUNTRY_CODE",
+      "ID",
+      "MD5SUM",
+      "NAME",
+      "NAME_PCODE_NF",
+      "NAME_PCODE_SF"
+    ],
+    "COMPANY_TYPE": [
+      "KIND"
+    ],
+    "COMPLETE_CAST": [
+      "MOVIE_ID",
+      "STATUS_ID"
+    ],
+    "COMP_CAST_TYPE": [
+      "KIND"
+    ],
+    "INFO_TYPE": [
+      "ID",
+      "INFO"
+    ],
+    "KEYWORD": [
+      "ID",
+      "PHONETIC_CODE"
+    ],
+    "KIND_TYPE": [
+      "ID"
+    ],
+    "MOVIE_COMPANIES": [
+      "COMPANY_ID",
+      "COMPANY_TYPE_ID",
+      "MOVIE_ID",
+      "NOTE"
+    ],
+    "MOVIE_INFO": [
+      "ID",
+      "INFO",
+      "INFO_TYPE_ID",
+      "MOVIE_ID"
+    ],
+    "MOVIE_INFO_IDX": [
+      "INFO",
+      "INFO_TYPE_ID",
+      "MOVIE_ID"
+    ],
+    "MOVIE_KEYWORD": [
+      "ID",
+      "KEYWORD_ID",
+      "MOVIE_ID"
+    ],
+    "NAME": [
+      "GENDER",
+      "ID"
+    ],
+    "PERSON_INFO": [
+      "PERSON_ID"
+    ],
+    "TITLE": [
+      "ID",
+      "KIND_ID",
+      "MD5SUM",
+      "PHONETIC_CODE",
+      "PRODUCTION_YEAR",
+      "TITLE"
+    ]
+  },
+  "range_predicate_variables": {
+    "AKA_NAME": [
+      "ID",
+      "PERSON_ID"
+    ],
+    "AKA_TITLE": [
+      "ID",
+      "KIND_ID",
+      "MOVIE_ID",
+      "PRODUCTION_YEAR"
+    ],
+    "CAST_INFO": [
+      "ID",
+      "MOVIE_ID",
+      "NR_ORDER",
+      "PERSON_ID",
+      "PERSON_ROLE_ID",
+      "ROLE_ID"
+    ],
+    "CHAR_NAME": [
+      "ID"
+    ],
+    "COMPANY_NAME": [
+      "ID"
+    ],
+    "COMPANY_TYPE": [
+      "ID"
+    ],
+    "COMPLETE_CAST": [
+      "ID",
+      "MOVIE_ID",
+      "STATUS_ID",
+      "SUBJECT_ID"
+    ],
+    "COMP_CAST_TYPE": [
+      "ID"
+    ],
+    "INFO_TYPE": [
+      "ID"
+    ],
+    "KEYWORD": [
+      "ID"
+    ],
+    "KIND_TYPE": [
+      "ID"
+    ],
+    "MOVIE_COMPANIES": [
+      "COMPANY_ID",
+      "COMPANY_TYPE_ID",
+      "ID",
+      "MOVIE_ID"
+    ],
+    "MOVIE_INFO": [
+      "ID",
+      "INFO_TYPE_ID",
+      "MOVIE_ID"
+    ],
+    "MOVIE_INFO_IDX": [
+      "ID",
+      "INFO_TYPE_ID",
+      "MOVIE_ID"
+    ],
+    "MOVIE_KEYWORD": [
+      "ID",
+      "KEYWORD_ID",
+      "MOVIE_ID"
+    ],
+    "NAME": [
+      "ID"
+    ],
+    "PERSON_INFO": [
+      "ID",
+      "INFO_TYPE_ID",
+      "PERSON_ID"
+    ],
+    "ROLE_TYPE": [
+      "ID"
+    ],
+    "TITLE": [
+      "ID",
+      "KIND_ID",
+      "PRODUCTION_YEAR"
+    ]
+  },
+  "fk_pk_joins_dict": {},
+  "range_predicate_intervals": {
+    "TITLE": {
+      "KIND_ID": [
+        {
+          "lower": null,
+          "upper": 1
+        },
+        {
+          "lower": 1,
+          "upper": null
+        }
+      ],
+      "PRODUCTION_YEAR": [
+        {
+          "lower": 1989,
+          "upper": null
+        },
+        {
+          "lower": 2002,
+          "upper": null
+        },
+        {
+          "lower": 1964,
+          "upper": null
+        },
+        {
+          "lower": 1998,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1965
+        },
+        {
+          "lower": null,
+          "upper": 2005
+        },
+        {
+          "lower": null,
+          "upper": 1998
+        },
+        {
+          "lower": 2010,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 2008
+        },
+        {
+          "lower": 2012,
+          "upper": null
+        }
+      ],
+      "ID": [
+        {
+          "lower": null,
+          "upper": 2019011
+        },
+        {
+          "lower": 2002658,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 2347106
+        },
+        {
+          "lower": null,
+          "upper": 1938935
+        },
+        {
+          "lower": 1689891,
+          "upper": null
+        },
+        {
+          "lower": 1779901,
+          "upper": null
+        },
+        {
+          "lower": 2339030,
+          "upper": null
+        },
+        {
+          "lower": 2360583,
+          "upper": null
+        },
+        {
+          "lower": 1852169,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 2392833
+        },
+        {
+          "lower": null,
+          "upper": 2481698
+        },
+        {
+          "lower": 2127988,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1709354
+        }
+      ]
+    },
+    "MOVIE_INFO": {
+      "ID": [
+        {
+          "lower": null,
+          "upper": 1279126
+        },
+        {
+          "lower": null,
+          "upper": 744374
+        },
+        {
+          "lower": null,
+          "upper": 1789133
+        },
+        {
+          "lower": 767199,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 942444
+        },
+        {
+          "lower": 11207622,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 915615
+        },
+        {
+          "lower": 4849526,
+          "upper": null
+        }
+      ],
+      "INFO_TYPE_ID": [
+        {
+          "lower": 107,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 78
+        },
+        {
+          "lower": null,
+          "upper": 4
+        },
+        {
+          "lower": null,
+          "upper": 17
+        },
+        {
+          "lower": null,
+          "upper": 16
+        },
+        {
+          "lower": null,
+          "upper": 15
+        },
+        {
+          "lower": 15,
+          "upper": null
+        },
+        {
+          "lower": 3,
+          "upper": null
+        }
+      ],
+      "MOVIE_ID": [
+        {
+          "lower": null,
+          "upper": 2368302
+        },
+        {
+          "lower": 1779901,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 2392833
+        },
+        {
+          "lower": null,
+          "upper": 2413074
+        },
+        {
+          "lower": null,
+          "upper": 2143924
+        },
+        {
+          "lower": null,
+          "upper": 2380113
+        },
+        {
+          "lower": 2392969,
+          "upper": null
+        }
+      ]
+    },
+    "AKA_TITLE": {
+      "PRODUCTION_YEAR": [
+        {
+          "lower": 1988,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 2003
+        },
+        {
+          "lower": 2003,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1999
+        },
+        {
+          "lower": 1977,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1976
+        },
+        {
+          "lower": 2000,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1991
+        },
+        {
+          "lower": 1955,
+          "upper": null
+        }
+      ],
+      "ID": [
+        {
+          "lower": null,
+          "upper": 312981
+        },
+        {
+          "lower": 65067,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 146370
+        },
+        {
+          "lower": 292569,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 293007
+        },
+        {
+          "lower": 340474,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 191589
+        },
+        {
+          "lower": 370464,
+          "upper": null
+        }
+      ],
+      "KIND_ID": [
+        {
+          "lower": null,
+          "upper": 1
+        },
+        {
+          "lower": 1,
+          "upper": null
+        }
+      ],
+      "MOVIE_ID": [
+        {
+          "lower": 2146630,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 2504433
+        },
+        {
+          "lower": null,
+          "upper": 2339030
+        },
+        {
+          "lower": 1983439,
+          "upper": null
+        },
+        {
+          "lower": 2249547,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1727373
+        },
+        {
+          "lower": null,
+          "upper": 2388832
+        }
+      ]
+    },
+    "COMPLETE_CAST": {
+      "MOVIE_ID": [
+        {
+          "lower": 2019011,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 2054199
+        },
+        {
+          "lower": 2388832,
+          "upper": null
+        },
+        {
+          "lower": 2402275,
+          "upper": null
+        },
+        {
+          "lower": 2127988,
+          "upper": null
+        },
+        {
+          "lower": 1686265,
+          "upper": null
+        },
+        {
+          "lower": 1984382,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1745753
+        }
+      ],
+      "SUBJECT_ID": [
+        {
+          "lower": 1,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1
+        }
+      ],
+      "ID": [
+        {
+          "lower": 3909,
+          "upper": null
+        }
+      ],
+      "STATUS_ID": [
+        {
+          "lower": 4,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 4
+        }
+      ]
+    },
+    "COMPANY_NAME": {
+      "ID": [
+        {
+          "lower": null,
+          "upper": 20240
+        },
+        {
+          "lower": 12959,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 12094
+        },
+        {
+          "lower": 1736,
+          "upper": null
+        },
+        {
+          "lower": 11812,
+          "upper": null
+        },
+        {
+          "lower": 11619,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 43031
+        }
+      ]
+    },
+    "MOVIE_COMPANIES": {
+      "COMPANY_ID": [
+        {
+          "lower": null,
+          "upper": 20240
+        },
+        {
+          "lower": null,
+          "upper": 11650
+        },
+        {
+          "lower": null,
+          "upper": 4548
+        },
+        {
+          "lower": null,
+          "upper": 685
+        },
+        {
+          "lower": 2980,
+          "upper": null
+        },
+        {
+          "lower": 573,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 11328
+        },
+        {
+          "lower": 772,
+          "upper": null
+        },
+        {
+          "lower": 163880,
+          "upper": null
+        },
+        {
+          "lower": 1373,
+          "upper": null
+        }
+      ],
+      "COMPANY_TYPE_ID": [
+        {
+          "lower": null,
+          "upper": 1
+        },
+        {
+          "lower": 1,
+          "upper": null
+        }
+      ],
+      "MOVIE_ID": [
+        {
+          "lower": null,
+          "upper": 2434721
+        },
+        {
+          "lower": null,
+          "upper": 1910475
+        },
+        {
+          "lower": null,
+          "upper": 1832107
+        },
+        {
+          "lower": null,
+          "upper": 2054199
+        },
+        {
+          "lower": 2404764,
+          "upper": null
+        }
+      ],
+      "ID": [
+        {
+          "lower": 596383,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1133926
+        },
+        {
+          "lower": null,
+          "upper": 804490
+        },
+        {
+          "lower": null,
+          "upper": 1905594
+        },
+        {
+          "lower": 1094710,
+          "upper": null
+        },
+        {
+          "lower": 2603998,
+          "upper": null
+        },
+        {
+          "lower": 1111727,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1111615
+        },
+        {
+          "lower": null,
+          "upper": 1067085
+        },
+        {
+          "lower": null,
+          "upper": 1066978
+        },
+        {
+          "lower": 1121548,
+          "upper": null
+        }
+      ]
+    },
+    "KIND_TYPE": {
+      "ID": [
+        {
+          "lower": null,
+          "upper": 1
+        },
+        {
+          "lower": null,
+          "upper": 7
+        },
+        {
+          "lower": 1,
+          "upper": null
+        }
+      ]
+    },
+    "MOVIE_KEYWORD": {
+      "ID": [
+        {
+          "lower": null,
+          "upper": 3502640
+        },
+        {
+          "lower": null,
+          "upper": 1678822
+        },
+        {
+          "lower": null,
+          "upper": 1712889
+        },
+        {
+          "lower": null,
+          "upper": 971256
+        },
+        {
+          "lower": null,
+          "upper": 2222028
+        },
+        {
+          "lower": null,
+          "upper": 3234224
+        },
+        {
+          "lower": null,
+          "upper": 3917006
+        },
+        {
+          "lower": null,
+          "upper": 3689867
+        }
+      ],
+      "KEYWORD_ID": [
+        {
+          "lower": 12795,
+          "upper": null
+        },
+        {
+          "lower": 5300,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 3919
+        },
+        {
+          "lower": null,
+          "upper": 4847
+        },
+        {
+          "lower": null,
+          "upper": 825
+        },
+        {
+          "lower": null,
+          "upper": 2273
+        },
+        {
+          "lower": null,
+          "upper": 12502
+        },
+        {
+          "lower": null,
+          "upper": 1932
+        }
+      ],
+      "MOVIE_ID": [
+        {
+          "lower": null,
+          "upper": 1648738
+        },
+        {
+          "lower": 1418245,
+          "upper": null
+        },
+        {
+          "lower": 2347106,
+          "upper": null
+        },
+        {
+          "lower": 1985712,
+          "upper": null
+        },
+        {
+          "lower": 2339030,
+          "upper": null
+        },
+        {
+          "lower": 2476804,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1721538
+        },
+        {
+          "lower": null,
+          "upper": 2413074
+        },
+        {
+          "lower": 1674438,
+          "upper": null
+        },
+        {
+          "lower": 2246844,
+          "upper": null
+        }
+      ]
+    },
+    "KEYWORD": {
+      "ID": [
+        {
+          "lower": 12795,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 19411
+        },
+        {
+          "lower": 34488,
+          "upper": null
+        },
+        {
+          "lower": 31826,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 18327
+        },
+        {
+          "lower": 7008,
+          "upper": null
+        },
+        {
+          "lower": 5563,
+          "upper": null
+        }
+      ]
+    },
+    "MOVIE_INFO_IDX": {
+      "MOVIE_ID": [
+        {
+          "lower": null,
+          "upper": 2018121
+        },
+        {
+          "lower": 2360583,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 2310522
+        }
+      ],
+      "ID": [
+        {
+          "lower": 602857,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 951206
+        },
+        {
+          "lower": null,
+          "upper": 619917
+        },
+        {
+          "lower": 582802,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1379916
+        },
+        {
+          "lower": 824865,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1202464
+        },
+        {
+          "lower": null,
+          "upper": 576059
+        },
+        {
+          "lower": null,
+          "upper": 625110
+        },
+        {
+          "lower": null,
+          "upper": 1379848
+        },
+        {
+          "lower": null,
+          "upper": 673456
+        }
+      ],
+      "INFO_TYPE_ID": [
+        {
+          "lower": null,
+          "upper": 100
+        },
+        {
+          "lower": null,
+          "upper": 101
+        },
+        {
+          "lower": 100,
+          "upper": null
+        }
+      ]
+    },
+    "CAST_INFO": {
+      "NR_ORDER": [
+        {
+          "lower": 1,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 41
+        },
+        {
+          "lower": null,
+          "upper": 2
+        },
+        {
+          "lower": null,
+          "upper": 1
+        },
+        {
+          "lower": 8,
+          "upper": null
+        }
+      ],
+      "PERSON_ID": [
+        {
+          "lower": 394411,
+          "upper": null
+        },
+        {
+          "lower": 800059,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1173519
+        },
+        {
+          "lower": null,
+          "upper": 1399952
+        },
+        {
+          "lower": 1294815,
+          "upper": null
+        },
+        {
+          "lower": 1340373,
+          "upper": null
+        },
+        {
+          "lower": 2308490,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 447041
+        },
+        {
+          "lower": 358689,
+          "upper": null
+        },
+        {
+          "lower": 304725,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1250571
+        },
+        {
+          "lower": null,
+          "upper": 1346561
+        }
+      ],
+      "PERSON_ROLE_ID": [
+        {
+          "lower": 549773,
+          "upper": null
+        },
+        {
+          "lower": 1,
+          "upper": null
+        },
+        {
+          "lower": 564225,
+          "upper": null
+        },
+        {
+          "lower": 1432752,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 2390876
+        }
+      ],
+      "ID": [
+        {
+          "lower": null,
+          "upper": 3754233
+        },
+        {
+          "lower": null,
+          "upper": 5908652
+        },
+        {
+          "lower": 16544645,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 4403389
+        },
+        {
+          "lower": null,
+          "upper": 3336407
+        },
+        {
+          "lower": 10265972,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 2960977
+        },
+        {
+          "lower": 14213512,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 9162679
+        },
+        {
+          "lower": 9795967,
+          "upper": null
+        },
+        {
+          "lower": 3478265,
+          "upper": null
+        }
+      ],
+      "MOVIE_ID": [
+        {
+          "lower": null,
+          "upper": 1733973
+        },
+        {
+          "lower": null,
+          "upper": 2310582
+        },
+        {
+          "lower": 2068968,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 2339030
+        },
+        {
+          "lower": null,
+          "upper": 2113016
+        },
+        {
+          "lower": null,
+          "upper": 2349607
+        }
+      ],
+      "ROLE_ID": [
+        {
+          "lower": 1,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1
+        }
+      ]
+    },
+    "NAME": {
+      "ID": [
+        {
+          "lower": 108056,
+          "upper": null
+        },
+        {
+          "lower": 1222744,
+          "upper": null
+        }
+      ]
+    },
+    "AKA_NAME": {
+      "ID": [
+        {
+          "lower": 41645,
+          "upper": null
+        },
+        {
+          "lower": 104140,
+          "upper": null
+        }
+      ],
+      "PERSON_ID": [
+        {
+          "lower": 265316,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1340373
+        },
+        {
+          "lower": null,
+          "upper": 502272
+        },
+        {
+          "lower": 1983844,
+          "upper": null
+        }
+      ]
+    },
+    "PERSON_INFO": {
+      "ID": [
+        {
+          "lower": 226600,
+          "upper": null
+        }
+      ],
+      "INFO_TYPE_ID": [
+        {
+          "lower": 17,
+          "upper": null
+        }
+      ],
+      "PERSON_ID": [
+        {
+          "lower": 358689,
+          "upper": null
+        }
+      ]
+    },
+    "COMPANY_TYPE": {
+      "ID": [
+        {
+          "lower": null,
+          "upper": 1
+        },
+        {
+          "lower": 1,
+          "upper": null
+        }
+      ]
+    },
+    "CHAR_NAME": {
+      "ID": [
+        {
+          "lower": null,
+          "upper": 58976
+        },
+        {
+          "lower": 79770,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 1542419
+        },
+        {
+          "lower": null,
+          "upper": 2625595
+        }
+      ]
+    },
+    "INFO_TYPE": {
+      "ID": [
+        {
+          "lower": 99,
+          "upper": null
+        },
+        {
+          "lower": null,
+          "upper": 99
+        }
+      ]
+    },
+    "ROLE_TYPE": {
+      "ID": [
+        {
+          "lower": null,
+          "upper": 2
+        }
+      ]
+    },
+    "COMP_CAST_TYPE": {
+      "ID": [
+        {
+          "lower": null,
+          "upper": 1
+        },
+        {
+          "lower": 1,
+          "upper": null
+        }
+      ]
+    }
+  }
+}

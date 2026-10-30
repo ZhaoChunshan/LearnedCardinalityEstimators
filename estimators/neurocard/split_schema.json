@@ -1,0 +1,108 @@
+{
+    "imdb": [
+        [
+            ["cast_info", "movie_id", "title", "id"],
+            ["movie_companies", "movie_id", "title", "id"],
+            ["movie_info", "movie_id", "title", "id"],
+            ["movie_keyword", "movie_id", "title", "id"],
+            ["movie_info_idx", "movie_id", "title", "id"]
+        ]
+    ],
+    "stats": [
+        [
+            ["badges", "userid", "users", "id"],
+            ["comments", "userid", "users", "id"],
+            ["posthistory", "userid", "users", "id"],
+            ["votes", "userid", "users", "id"],
+            ["posts", "owneruserid", "users", "id"],
+            ["postlinks", "postid", "posts", "id"],
+            ["tags", "excerptpostid", "posts", "id"]
+        ],
+        [
+            ["comments", "postid", "posts", "id"],
+            ["posthistory", "postid", "posts", "id"],
+            ["postlinks", "postid", "posts", "id"],
+            ["posts", "owneruserid", "users", "id"],
+            ["votes", "postid", "posts", "id"],
+            ["badges", "userid", "users", "id"]
+        ],
+        [
+            ["votes", "postid", "posts", "id"],
+            ["votes", "userid", "users", "id"]
+        ],
+        [
+            ["comments", "postid", "posts", "id"],
+            ["postlinks", "relatedpostid", "posts", "id"],
+            ["posts", "owneruserid", "users", "id"],
+            ["badges", "userid", "users", "id"],
+            ["posthistory", "userid", "users", "id"],
+            ["votes", "userid", "users", "id"]
+        ],
+        [
+            ["comments", "postid", "posts", "id"],
+            ["postlinks", "relatedpostid", "posts", "id"],
+            ["votes", "postid", "posts", "id"],
+            ["posts", "owneruserid", "users", "id"],
+            ["badges", "userid", "users", "id"]
+        ],
+        [
+            ["postlinks", "postid", "posts", "id"],
+            ["posthistory", "postid", "posts", "id"],
+            ["comments", "postid", "posts", "id"],
+            ["comments", "userid", "users", "id"],
+            ["votes", "userid", "users", "id"]
+        ],
+        [
+            ["comments", "postid", "posts", "id"],
+            ["postlinks", "relatedpostid", "posts", "id"],
+            ["posthistory", "postid", "posts", "id"],
+            ["votes", "postid", "posts", "id"],
+            ["badges", "userid", "users", "id"],
+            ["comments", "userid", "users", "id"]
+        ]
+    ],
+    "imdb_m":[
+        [
+            ["aka_title", "movie_id", "title", "id"],
+            ["cast_info", "movie_id", "title", "id"],
+            ["complete_cast", "movie_id", "title", "id"],
+            ["movie_companies", "movie_id", "title", "id"],
+            ["movie_info", "movie_id", "title", "id"],
+            ["movie_info_idx", "movie_id", "title", "id"],
+            ["movie_keyword", "movie_id", "title", "id"],
+            ["movie_link", "movie_id", "title", "id"],
+            ["title", "kind_id", "kind_type", "id"],
+            ["complete_cast", "subject_id", "comp_cast_type", "id"],
+            ["movie_companies", "company_id", "company_name", "id"],
+            ["movie_companies", "company_type_id", "company_type", "id"],
+            ["movie_info_idx", "info_type_id", "info_type", "id"],
+            ["movie_keyword", "keyword_id", "keyword", "id"],
+            ["movie_link", "link_type_id", "link_type", "id"]
+        ]
+    ],
+    "imdb_large":[
+        [
+            ["aka_title", "movie_id", "title", "id"],
+            ["cast_info", "movie_id", "title", "id"],
+            ["complete_cast", "movie_id", "title", "id"],
+            ["movie_companies", "movie_id", "title", "id"],
+            ["movie_info", "movie_id", "title", "id"],
+            ["movie_info_idx", "movie_id", "title", "id"],
+            ["movie_keyword", "movie_id", "title", "id"],
+            ["movie_link", "movie_id", "title", "id"],
+            ["title", "kind_id", "kind_type", "id"],
+            ["complete_cast", "subject_id", "comp_cast_type", "id"],
+            ["movie_companies", "company_id", "company_name", "id"],
+            ["movie_companies", "company_type_id", "company_type", "id"],
+            ["movie_info_idx", "info_type_id", "info_type", "id"],
+            ["movie_keyword", "keyword_id", "keyword", "id"],
+            ["movie_link", "link_type_id", "link_type", "id"],
+            ["aka_name", "person_id", "name", "id"],
+            ["cast_info", "person_id", "name", "id"],
+            ["cast_info", "person_role_id", "char_name", "id"],
+            ["cast_info", "role_id", "role_type", "id"],
+            ["name", "id", "person_info", "person_id"]
+        ]
+    ],
+    "ergastf1": [[["pitstops", "driverid", "drivers", "driverid"], ["target", "driverid", "drivers", "driverid"], ["qualifying", "driverid", "drivers", "driverid"], ["qualifying", "constructorid", "constructors", "constructorid"], ["driverstandings", "driverid", "drivers", "driverid"], ["laptimes", "raceid", "races", "raceid"], ["results", "raceid", "races", "raceid"], ["results", "driverid", "drivers", "driverid"], ["constructorstandings", "constructorid", "constructors", "constructorid"]], [["laptimes", "driverid", "drivers", "driverid"], ["target", "driverid", "drivers", "driverid"], ["qualifying", "driverid", "drivers", "driverid"], ["qualifying", "raceid", "races", "raceid"], ["results", "raceid", "races", "raceid"], ["constructorstandings", "raceid", "races", "raceid"], ["driverstandings", "driverid", "drivers", "driverid"], ["pitstops", "driverid", "drivers", "driverid"], ["constructorresults", "constructorid", "constructors", "constructorid"], ["qualifying", "constructorid", "constructors", "constructorid"]], [["constructorresults", "raceid", "races", "raceid"], ["laptimes", "raceid", "races", "raceid"], ["constructorresults", "constructorid", "constructors", "constructorid"], ["results", "constructorid", "constructors", "constructorid"], ["qualifying", "constructorid", "constructors", "constructorid"], ["qualifying", "driverid", "drivers", "driverid"], ["constructorstandings", "constructorid", "constructors", "constructorid"], ["pitstops", "raceid", "races", "raceid"], ["driverstandings", "raceid", "races", "raceid"], ["target", "raceid", "races", "raceid"]], [["qualifying", "driverid", "drivers", "driverid"], ["laptimes", "driverid", "drivers", "driverid"], ["results", "driverid", "drivers", "driverid"], ["target", "driverid", "drivers", "driverid"], ["pitstops", "driverid", "drivers", "driverid"], ["constructorresults", "constructorid", "constructors", "constructorid"], ["qualifying", "constructorid", "constructors", "constructorid"], ["driverstandings", "driverid", "drivers", "driverid"], ["laptimes", "raceid", "races", "raceid"]], [["results", "constructorid", "constructors", "constructorid"], ["laptimes", "raceid", "races", "raceid"], ["results", "raceid", "races", "raceid"], ["constructorstandings", "constructorid", "constructors", "constructorid"], ["constructorresults", "constructorid", "constructors", "constructorid"], ["qualifying", "constructorid", "constructors", "constructorid"], ["results", "statusid", "status", "statusid"], ["target", "raceid", "races", "raceid"], ["driverstandings", "driverid", "drivers", "driverid"], ["qualifying", "driverid", "drivers", "driverid"]], [["constructorstandings", "constructorid", "constructors", "constructorid"], ["results", "constructorid", "constructors", "constructorid"], ["constructorstandings", "raceid", "races", "raceid"], ["laptimes", "raceid", "races", "raceid"], ["constructorresults", "raceid", "races", "raceid"], ["driverstandings", "driverid", "drivers", "driverid"], ["qualifying", "driverid", "drivers", "driverid"], ["results", "driverid", "drivers", "driverid"], ["pitstops", "driverid", "drivers", "driverid"], ["target", "raceid", "races", "raceid"]], [["qualifying", "driverid", "drivers", "driverid"], ["results", "driverid", "drivers", "driverid"], ["constructorresults", "constructorid", "constructors", "constructorid"], ["qualifying", "constructorid", "constructors", "constructorid"], ["qualifying", "raceid", "races", "raceid"], ["target", "raceid", "races", "raceid"], ["constructorstandings", "constructorid", "constructors", "constructorid"], ["laptimes", "driverid", "drivers", "driverid"], ["driverstandings", "raceid", "races", "raceid"], ["pitstops", "driverid", "drivers", "driverid"]], [["qualifying", "driverid", "drivers", "driverid"], ["pitstops", "driverid", "drivers", "driverid"], ["results", "driverid", "drivers", "driverid"], ["constructorresults", "constructorid", "constructors", "constructorid"], ["results", "constructorid", "constructors", "constructorid"], ["target", "driverid", "drivers", "driverid"], ["constructorstandings", "raceid", "races", "raceid"], ["pitstops", "raceid", "races", "raceid"], ["results", "statusid", "status", "statusid"], ["laptimes", "driverid", "drivers", "driverid"]], [["laptimes", "raceid", "races", "raceid"], ["results", "raceid", "races", "raceid"], ["constructorresults", "raceid", "races", "raceid"], ["constructorstandings", "raceid", "races", "raceid"], ["target", "raceid", "races", "raceid"], ["target", "driverid", "drivers", "driverid"], ["results", "statusid", "status", "statusid"], ["qualifying", "raceid", "races", "raceid"], ["driverstandings", "raceid", "races", "raceid"], ["pitstops", "driverid", "drivers", "driverid"], ["races", "year", "seasons", "year"]], [["driverstandings", "driverid", "drivers", "driverid"], ["laptimes", "driverid", "drivers", "driverid"], ["driverstandings", "raceid", "races", "raceid"], ["target", "raceid", "races", "raceid"], ["constructorresults", "raceid", "races", "raceid"], ["qualifying", "driverid", "drivers", "driverid"], ["constructorstandings", "raceid", "races", "raceid"], ["pitstops", "raceid", "races", "raceid"], ["results", "raceid", "races", "raceid"], ["results", "statusid", "status", "statusid"]], [["results", "raceid", "races", "raceid"], ["target", "raceid", "races", "raceid"], ["laptimes", "driverid", "drivers", "driverid"], ["target", "driverid", "drivers", "driverid"], ["constructorresults", "constructorid", "constructors", "constructorid"], ["qualifying", "constructorid", "constructors", "constructorid"], ["constructorstandings", "constructorid", "constructors", "constructorid"], ["qualifying", "driverid", "drivers", "driverid"]], [["laptimes", "raceid", "races", "raceid"], ["target", "raceid", "races", "raceid"], ["qualifying", "raceid", "races", "raceid"], ["laptimes", "driverid", "drivers", "driverid"], ["driverstandings", "raceid", "races", "raceid"]], [["constructorresults", "raceid", "races", "raceid"], ["constructorstandings", "raceid", "races", "raceid"], ["pitstops", "raceid", "races", "raceid"], ["pitstops", "driverid", "drivers", "driverid"], ["qualifying", "driverid", "drivers", "driverid"], ["qualifying", "constructorid", "constructors", "constructorid"]], [["results", "driverid", "drivers", "driverid"], ["pitstops", "driverid", "drivers", "driverid"], ["driverstandings", "raceid", "races", "raceid"], ["results", "raceid", "races", "raceid"], ["qualifying", "raceid", "races", "raceid"], ["constructorstandings", "raceid", "races", "raceid"]]]
+}

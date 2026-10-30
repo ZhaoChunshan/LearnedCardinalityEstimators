@@ -1,0 +1,455 @@
+{
+  "name": "ergastf1",
+  "relations": {
+    "CONSTRUCTORRESULTS": {
+      "CONSTRUCTORRESULTSID": "int",
+      "RACEID": "int",
+      "CONSTRUCTORID": "int",
+      "POINTS": "float",
+      "STATUS": "str"
+    },
+    "CONSTRUCTORS": {
+      "CONSTRUCTORID": "int",
+      "CONSTRUCTORREF": "str",
+      "NAME": "str",
+      "NATIONALITY": "str",
+      "URL": "str"
+    },
+    "CONSTRUCTORSTANDINGS": {
+      "CONSTRUCTORSTANDINGSID": "int",
+      "RACEID": "int",
+      "CONSTRUCTORID": "int",
+      "POINTS": "float",
+      "POSITION": "int",
+      "POSITIONTEXT": "int",
+      "WINS": "int"
+    },
+    "DRIVERS": {
+      "DRIVERID": "int",
+      "DRIVERREF": "str",
+      "NUMBER": "int",
+      "CODE": "str",
+      "FORENAME": "str",
+      "SURNAME": "str",
+      "DOB": "str",
+      "NATIONALITY": "int",
+      "URL": "str"
+    },
+    "DRIVERSTANDINGS": {
+      "DRIVERSTANDINGSID": "int",
+      "RACEID": "int",
+      "DRIVERID": "int",
+      "POINTS": "float",
+      "POSITION": "int",
+      "POSITIONTEXT": "str",
+      "WINS": "int"
+    },
+    "LAPTIMES": {
+      "RACEID": "int",
+      "DRIVERID": "int",
+      "LAP": "int",
+      "POSITION": "int",
+      "TIME": "str",
+      "MILLISECONDS": "int"
+    },
+    "PITSTOPS": {
+      "RACEID": "int",
+      "DRIVERID": "int",
+      "STOP": "int",
+      "LAP": "int",
+      "TIME": "str",
+      "DURATION": "str",
+      "MILLISECONDS": "int"
+    },
+    "QUALIFYING": {
+      "QUALIFYID": "int",
+      "RACEID": "int",
+      "DRIVERID": "int",
+      "CONSTRUCTORID": "int",
+      "NUMBER": "int",
+      "POSITION": "int",
+      "Q1": "str",
+      "Q2": "str",
+      "Q3": "str"
+    },
+    "RACES": {
+      "RACEID": "int",
+      "YEAR": "int",
+      "ROUND": "int",
+      "CIRCUITID": "int",
+      "NAME": "int",
+      "DATE": "str",
+      "TIME": "str",
+      "URL": "str"
+    },
+    "RESULTS": {
+      "RESULTID": "int",
+      "RACEID": "int",
+      "DRIVERID": "int",
+      "CONSTRUCTORID": "int",
+      "NUMBER": "int",
+      "GRID": "int",
+      "POSITION": "int",
+      "POSITIONTEXT": "int",
+      "POSITIONORDER": "int",
+      "POINTS": "float",
+      "LAPS": "int",
+      "TIME": "str",
+      "MILLISECONDS": "int",
+      "FASTESTLAP": "int",
+      "RANK": "int",
+      "FASTESTLAPTIME": "str",
+      "FASTESTLAPSPEED": "str",
+      "STATUSID": "int"
+    },
+    "SEASONS": {
+      "YEAR": "int",
+      "URL": "str"
+    },
+    "STATUS": {
+      "STATUSID": "int",
+      "STATUS": "str"
+    },
+    "TARGET": {
+      "TARGETID": "int",
+      "RACEID": "int",
+      "DRIVERID": "int",
+      "WIN": "int"
+    }
+  },
+  "join_variables": {
+    "CONSTRUCTORRESULTS": [
+      "CONSTRUCTORID",
+      "RACEID"
+    ],
+    "CONSTRUCTORS": [
+      "CONSTRUCTORID"
+    ],
+    "CONSTRUCTORSTANDINGS": [
+      "CONSTRUCTORID",
+      "RACEID"
+    ],
+    "DRIVERS": [
+      "DRIVERID"
+    ],
+    "DRIVERSTANDINGS": [
+      "DRIVERID",
+      "RACEID"
+    ],
+    "LAPTIMES": [
+      "DRIVERID",
+      "RACEID"
+    ],
+    "PITSTOPS": [
+      "DRIVERID",
+      "RACEID"
+    ],
+    "QUALIFYING": [
+      "CONSTRUCTORID",
+      "DRIVERID",
+      "RACEID"
+    ],
+    "RACES": [
+      "RACEID",
+      "YEAR"
+    ],
+    "RESULTS": [
+      "CONSTRUCTORID",
+      "DRIVERID",
+      "RACEID",
+      "STATUSID"
+    ],
+    "SEASONS": [
+      "YEAR"
+    ],
+    "STATUS": [
+      "STATUSID"
+    ],
+    "TARGET": [
+      "DRIVERID",
+      "RACEID"
+    ]
+  },
+  "groupby_variables": {
+    "CONSTRUCTORRESULTS": [
+      [
+        "*"
+      ]
+    ],
+    "CONSTRUCTORS": [
+      [
+        "*"
+      ]
+    ],
+    "CONSTRUCTORSTANDINGS": [
+      [
+        "*"
+      ]
+    ],
+    "DRIVERS": [
+      [
+        "*"
+      ]
+    ],
+    "DRIVERSTANDINGS": [
+      [
+        "*"
+      ]
+    ],
+    "LAPTIMES": [
+      [
+        "*"
+      ]
+    ],
+    "PITSTOPS": [
+      [
+        "*"
+      ]
+    ],
+    "QUALIFYING": [
+      [
+        "*"
+      ]
+    ],
+    "RACES": [
+      [
+        "*"
+      ]
+    ],
+    "RESULTS": [
+      [
+        "*"
+      ]
+    ],
+    "SEASONS": [
+      [
+        "*"
+      ]
+    ],
+    "STATUS": [
+      [
+        "*"
+      ]
+    ],
+    "TARGET": [
+      [
+        "*"
+      ]
+    ]
+  },
+  "equality_predicate_variables": {
+    "CONSTRUCTORRESULTS": [
+      "POINTS"
+    ],
+    "CONSTRUCTORSTANDINGS": [
+      "POSITION",
+      "POSITIONTEXT",
+      "WINS"
+    ],
+    "DRIVERS": [
+      "NATIONALITY"
+    ],
+    "DRIVERSTANDINGS": [
+      "WINS"
+    ],
+    "LAPTIMES": [
+      "LAP",
+      "POSITION"
+    ],
+    "PITSTOPS": [
+      "LAP",
+      "STOP"
+    ],
+    "QUALIFYING": [
+      "CONSTRUCTORID",
+      "NUMBER",
+      "POSITION"
+    ],
+    "RACES": [
+      "CIRCUITID",
+      "NAME",
+      "ROUND"
+    ],
+    "RESULTS": [
+      "FASTESTLAP",
+      "GRID",
+      "POINTS",
+      "POSITION",
+      "POSITIONORDER",
+      "POSITIONTEXT",
+      "RANK"
+    ],
+    "TARGET": [
+      "WIN"
+    ]
+  },
+  "range_predicate_variables": {
+    "CONSTRUCTORRESULTS": [
+      "CONSTRUCTORID",
+      "CONSTRUCTORRESULTSID",
+      "RACEID"
+    ],
+    "CONSTRUCTORSTANDINGS": [
+      "CONSTRUCTORID",
+      "CONSTRUCTORSTANDINGSID",
+      "POINTS",
+      "RACEID"
+    ],
+    "DRIVERSTANDINGS": [
+      "DRIVERID",
+      "DRIVERSTANDINGSID",
+      "POINTS",
+      "POSITION",
+      "RACEID"
+    ],
+    "LAPTIMES": [
+      "DRIVERID",
+      "MILLISECONDS",
+      "RACEID"
+    ],
+    "PITSTOPS": [
+      "MILLISECONDS",
+      "RACEID"
+    ],
+    "QUALIFYING": [
+      "DRIVERID",
+      "QUALIFYID",
+      "RACEID"
+    ],
+    "RESULTS": [
+      "CONSTRUCTORID",
+      "DRIVERID",
+      "LAPS",
+      "MILLISECONDS",
+      "NUMBER",
+      "RACEID",
+      "RESULTID",
+      "STATUSID"
+    ],
+    "TARGET": [
+      "DRIVERID",
+      "RACEID",
+      "TARGETID"
+    ]
+  },
+  "fk_pk_joins_dict": {
+    "CONSTRUCTORRESULTS": [
+      {
+        "pk_relation": "RACES",
+        "fk": "RACEID",
+        "pk": "RACEID"
+      },
+      {
+        "pk_relation": "CONSTRUCTORS",
+        "fk": "CONSTRUCTORID",
+        "pk": "CONSTRUCTORID"
+      }
+    ],
+    "CONSTRUCTORSTANDINGS": [
+      {
+        "pk_relation": "RACES",
+        "fk": "RACEID",
+        "pk": "RACEID"
+      },
+      {
+        "pk_relation": "CONSTRUCTORS",
+        "fk": "CONSTRUCTORID",
+        "pk": "CONSTRUCTORID"
+      }
+    ],
+    "DRIVERSTANDINGS": [
+      {
+        "pk_relation": "RACES",
+        "fk": "RACEID",
+        "pk": "RACEID"
+      },
+      {
+        "pk_relation": "DRIVERS",
+        "fk": "DRIVERID",
+        "pk": "DRIVERID"
+      }
+    ],
+    "LAPTIMES": [
+      {
+        "pk_relation": "RACES",
+        "fk": "RACEID",
+        "pk": "RACEID"
+      },
+      {
+        "pk_relation": "DRIVERS",
+        "fk": "DRIVERID",
+        "pk": "DRIVERID"
+      }
+    ],
+    "PITSTOPS": [
+      {
+        "pk_relation": "RACES",
+        "fk": "RACEID",
+        "pk": "RACEID"
+      },
+      {
+        "pk_relation": "DRIVERS",
+        "fk": "DRIVERID",
+        "pk": "DRIVERID"
+      }
+    ],
+    "QUALIFYING": [
+      {
+        "pk_relation": "RACES",
+        "fk": "RACEID",
+        "pk": "RACEID"
+      },
+      {
+        "pk_relation": "DRIVERS",
+        "fk": "DRIVERID",
+        "pk": "DRIVERID"
+      },
+      {
+        "pk_relation": "CONSTRUCTORS",
+        "fk": "CONSTRUCTORID",
+        "pk": "CONSTRUCTORID"
+      }
+    ],
+    "RACES": [
+      {
+        "pk_relation": "SEASONS",
+        "fk": "YEAR",
+        "pk": "YEAR"
+      }
+    ],
+    "RESULTS": [
+      {
+        "pk_relation": "RACES",
+        "fk": "RACEID",
+        "pk": "RACEID"
+      },
+      {
+        "pk_relation": "DRIVERS",
+        "fk": "DRIVERID",
+        "pk": "DRIVERID"
+      },
+      {
+        "pk_relation": "CONSTRUCTORS",
+        "fk": "CONSTRUCTORID",
+        "pk": "CONSTRUCTORID"
+      },
+      {
+        "pk_relation": "STATUS",
+        "fk": "STATUSID",
+        "pk": "STATUSID"
+      }
+    ],
+    "TARGET": [
+      {
+        "pk_relation": "RACES",
+        "fk": "RACEID",
+        "pk": "RACEID"
+      },
+      {
+        "pk_relation": "DRIVERS",
+        "fk": "DRIVERID",
+        "pk": "DRIVERID"
+      }
+    ]
+  }
+}

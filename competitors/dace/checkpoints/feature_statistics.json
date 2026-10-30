@@ -1,0 +1,44 @@
+{
+  "Actual Total Time": {
+    "type": "numeric",
+    "max": 29993.583,
+    "min": 0.0,
+    "center": 153.8985,
+    "scale": 903.10575
+  },
+  "Plan Rows": {
+    "type": "numeric",
+    "max": 194852355127.0,
+    "min": 1.0,
+    "center": 7699.0,
+    "scale": 239113.0
+  },
+  "Total Cost": {
+    "type": "numeric",
+    "max": 3070426720.96,
+    "min": 0.15,
+    "center": 21021.0,
+    "scale": 127024.52750000001
+  },
+  "node_types": {
+    "type": "categorical",
+    "value_dict": {
+      "BitmapOr": 0,
+      "Hash Join": 1,
+      "Merge Join": 2,
+      "Aggregate": 3,
+      "Seq Scan": 4,
+      "Hash": 5,
+      "Nested Loop": 6,
+      "Index Scan": 7,
+      "Result": 8,
+      "Limit": 9,
+      "Materialize": 10,
+      "Bitmap Index Scan": 11,
+      "Sort": 12,
+      "Index Only Scan": 13,
+      "Memoize": 14,
+      "Bitmap Heap Scan": 15
+    }
+  }
+}

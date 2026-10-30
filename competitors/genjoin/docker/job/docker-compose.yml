@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+    postgres:
+        image: pg_img
+        volumes:
+            - ./../..//data/db_content/JOB/fkindexes.sql:/docker-entrypoint-initdb.d/fkindexes.sql
+            - ./../../data/db_content/JOB/imdb.dump:/docker-entrypoint-initdb.d/imdb.dump
+            - ./postgresql.conf:/postgresql.conf
+            - ./pgdata:/pgdata
+        ports:
+            - "5431:5432"
+        environment:
+            - PGDATA=/pgdata
+            - POSTGRES_DB=${DB_NAME}
+            - POSTGRES_USER=${DB_USER}
+            - POSTGRES_PASSWORD=${DB_PASSWORD}
+        container_name: job
+        restart: always
+        shm_size: 10gb

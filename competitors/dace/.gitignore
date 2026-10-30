@@ -1,0 +1,14 @@
+__pycache__/
+data/
+workloads/
+logs/
+wandb/
+*.log
+.vscode
+csrc/build/*
+*.so
+*.out
+results.csv
+checkpoints/*.ckpt
+!checkpoints/DACE_author_pretrained.ckpt
+!checkpoints/DACE_ours_no_imdb.ckpt

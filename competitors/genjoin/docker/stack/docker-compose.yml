@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    postgres:
+        image: pg_img
+        volumes:
+            - ./../../data/db_content/STACK/so.dump:/docker-entrypoint-initdb.d/so.dump
+            - ./postgresql.conf:/postgresql.conf
+            - ./pgdata:/pgdata
+        ports:
+            - "5432:5432"
+        environment:
+            - PGDATA=/pgdata
+            - POSTGRES_DB=${DB_NAME}
+            - POSTGRES_USER=${DB_USER}
+            - POSTGRES_PASSWORD=${DB_PASSWORD}
+        container_name: stack
+        restart: always
+        shm_size: 10gb

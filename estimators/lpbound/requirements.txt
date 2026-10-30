@@ -1,0 +1,6 @@
+duckdb==0.10.1
+numpy==1.26.4
+ortools==9.12.4544
+pandas==2.2.3
+sqlparse==0.5.3
+tqdm==4.67.1
